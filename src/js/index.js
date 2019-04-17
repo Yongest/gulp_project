@@ -1,0 +1,1 @@
+"use strict";console.log(2222);var c=4,b=5;console.log("你好");var str="0llsfl".concat(c,"ssss");
