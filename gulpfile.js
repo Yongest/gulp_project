@@ -1,19 +1,21 @@
 
-var gulp = require('gulp');
+const gulp = require('gulp');
 
-var less = require('gulp-less');
-var cleanCss = require('gulp-clean-css');
-var del = require('del')
-var babel = require('gulp-babel')
-var uglify = require('gulp-uglify');
+const less = require('gulp-less');
+const cleanCss = require('gulp-clean-css');
+const del = require('del')
+const babel = require('gulp-babel')
+const uglify = require('gulp-uglify');
 const autoprefixer = require('gulp-autoprefixer');
+const template = require('art-template');
+const fs = require('fs')
 
 gulp.task('default',function(){
     console.log('Welcome to Frontend Automation!')
     gulp.watch('./src/less/*.less',['less']);
     gulp.watch('./src/originjs/*.js',['js']);
+    gulp.watch('./src/originhtml/*.html',['html']);
 })
-
 
 // 2.删除
 gulp.task('del',function(){
@@ -45,3 +47,15 @@ gulp.task('less',function(){
     // console.log('less compile completed~~')
 })
 
+gulp.task('html',function(){
+
+    let filename = fs.readdirSync("./src/originhtml");
+    filename.forEach(v=>{
+        let html = template(__dirname+'/src/originhtml/'+v,{})
+        // console.log(html)
+        fs.writeFile(__dirname+'/src/'+v, html,(err)=>{
+            console.log(err)
+        });
+    })
+
+})

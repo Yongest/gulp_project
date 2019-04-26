@@ -9,7 +9,8 @@
 6.小图片处理。
 7.删除文件处理。
 8.缓存处理。
-gulp.watch('js/**/*.js')  表示监控所有的js
+
+    gulp.watch('js/**/*.js')  表示监控所有的js
     gulp.task('watchfile',function(){
         gulp.watch('./src/index.html',['task1'])
     })

@@ -11,6 +11,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
+    "art-template": "^4.13.2",
     "del": "^4.1.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
